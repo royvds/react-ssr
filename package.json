@@ -1,12 +1,12 @@
 {
-  "name": "@react-node-ssr/monorepo",
+  "name": "@react-ssr/monorepo",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "deploy": "yarn workspace @react-node-ssr/web deploy && yarn workspace @react-node-ssr/server deploy",
+    "deploy": "yarn workspace @react-ssr/web deploy && yarn workspace @react-ssr/server deploy",
     "clean-install": "rimraf node_modules && yarn",
     "eslint": "eslint --max-warnings 0 -f gitlab --ext js,jsx .",
     "prettier": "prettier --check '**/*.{html,json,md,yaml,yml}'"

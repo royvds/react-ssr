@@ -5,7 +5,7 @@ import React from 'react';
 import express from 'express';
 import { json, urlencoded } from 'body-parser';
 import ReactDOMServer from 'react-dom/server';
-import { App, StaticRouter } from '@react-node-ssr/web';
+import { App, StaticRouter } from '@react-ssr/web';
 
 const app = express();
 

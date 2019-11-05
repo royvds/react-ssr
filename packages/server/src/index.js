@@ -6,5 +6,5 @@ app.listen(port);
 
 // eslint-disable-next-line no-console
 console.log(
-  `\nServer running on: \x1b[1m\x1b[36m${port}\x1b[0m \nPress ctrl+c to quit.\n\n`,
+  `\nServer running on: \x1b[1m\x1b[36m${port}\x1b[0m \nPress ctrl+c to quit.\n`,
 );

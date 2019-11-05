@@ -1,5 +1,5 @@
 {
-  "name": "@react-node-ssr/server",
+  "name": "@react-ssr/server",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "dev": "nodemon --exec babel-node src/app.jsx"
   },
   "dependencies": {
-    "@react-node-ssr/web": "1.0.0",
+    "@react-ssr/web": "1.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1"
   }
