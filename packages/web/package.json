@@ -1,0 +1,11 @@
+{
+  "name": "@react-node-ssr/web",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack --mode production",
+    "build-exports": "rm -rf lib && webpack --mode production --config webpack.exp.config.js",
+    "deploy": "yarn build && yarn build-exports"
+  }
+}

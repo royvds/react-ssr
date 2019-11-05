@@ -1,0 +1,16 @@
+{
+  "name": "@react-node-ssr/server",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf dist && babel src -d dist",
+    "start": "node ./dist/index.js",
+    "deploy": "yarn build && yarn start",
+    "dev": "nodemon --exec babel-node src/app.jsx"
+  },
+  "dependencies": {
+    "@react-node-ssr/web": "1.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
