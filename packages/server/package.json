@@ -5,8 +5,7 @@
   "scripts": {
     "build": "rm -rf dist && babel src -d dist",
     "start": "node ./dist/index.js",
-    "deploy": "yarn build && yarn start",
-    "dev": "nodemon --exec babel-node src/app.jsx"
+    "deploy": "yarn build && yarn start"
   },
   "dependencies": {
     "@react-ssr/web": "1.0.0",
