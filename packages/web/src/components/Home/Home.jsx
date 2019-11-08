@@ -3,7 +3,8 @@ import { window } from 'ssr-window';
 
 export default class Home extends React.Component {
   render() {
-    console.log('Home Page!');
+    // Without importing window from ssr-window you would get window is undefined error
+    // Because window isn't available on the node server.
     console.log(window);
     return (
       <>

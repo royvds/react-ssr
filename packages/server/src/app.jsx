@@ -11,12 +11,7 @@ const app = express();
 
 app.use(urlencoded({ extended: true }));
 app.use(json());
-
 app.use(express.static('../web/dist', { maxAge: '365d' }));
-
-app.get('/service-worker.js', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public', 'service-worker.js'));
-});
 
 app.get('*', (req, res) => {
   const context = {};

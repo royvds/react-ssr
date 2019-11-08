@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "scripts": {
     "build": "rm -rf dist && rm -rf lib && webpack --mode production",
-    "build-exports": "rm -rf lib && webpack --mode production --config webpack.ssr.config.js",
+    "dev": "rm -rf dist && rm -rf lib && webpack --mode production -w",
     "deploy": "yarn build"
   },
   "devDependencies": {

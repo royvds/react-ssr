@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "rm -rf dist && nodemon --exec babel-node ./src/index.js -e js,jsx",
     "build": "rm -rf dist && babel src -d dist",
     "start": "node ./dist/index.js",
     "deploy": "yarn build && yarn start"
@@ -11,5 +12,9 @@
     "@react-ssr/web": "1.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.7.0",
+    "nodemon": "^1.19.4"
   }
 }
