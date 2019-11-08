@@ -1,17 +1,41 @@
 const path = require('path');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
-module.exports = {
-  resolve: { extensions: ['.js', '.jsx'] },
+// settings for ssr
+const ssr = {
+  entry: './index.jsx',
+  output: {
+    path: path.join(__dirname, 'lib'),
+    publicPath: '/',
+    filename: 'index.js',
+    libraryTarget: 'commonjs2',
+  },
+};
+
+// settings for client
+const client = {
   entry: './src/index.jsx',
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'index.js',
+    filename: 'bundle.js',
   },
   target: 'web',
   devtool: 'source-map',
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './public/index.html',
+      filename: './index.html',
+      excludeChunks: ['server'],
+    }),
+    new CopyPlugin([{ from: 'public/images', to: 'images' }]),
+  ],
+};
+
+const shared = {
+  resolve: { extensions: ['.js', '.jsx'] },
   module: {
     rules: [
       {
@@ -37,11 +61,15 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-      excludeChunks: ['server'],
-    }),
-  ],
 };
+
+module.exports = [
+  {
+    ...shared,
+    ...ssr,
+  },
+  {
+    ...shared,
+    ...client,
+  },
+];

@@ -12,7 +12,13 @@ const app = express();
 app.use(urlencoded({ extended: true }));
 app.use(json());
 
-app.get('/*', (req, res) => {
+app.use(express.static('../web/dist', { maxAge: '365d' }));
+
+app.get('/service-worker.js', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'service-worker.js'));
+});
+
+app.get('*', (req, res) => {
   const context = {};
   const markup = ReactDOMServer.renderToString(
     <StaticRouter context={context} location={req.url}>
@@ -20,7 +26,7 @@ app.get('/*', (req, res) => {
     </StaticRouter>,
   );
 
-  const indexFile = path.resolve('../web/public/index.html');
+  const indexFile = path.resolve('../web/dist/index.html');
   fs.readFile(indexFile, 'utf8', (err, data) => {
     if (err) {
       return res.status(500).send('Oops, better luck next time!');

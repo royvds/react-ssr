@@ -4,4 +4,4 @@ This is intended as a small example for rendering a React Application on an Expr
 
 <b>This is a monorepo using yarn workspaces.</b>
 
-Inside the web workspace there are two webpack configuration files, webpack.config.js is to bundle the React application for when you would run it normally with Client Side Rendering. webpack.exp.config.js is to export (hence exp) the App component so the node server can access this component without having to bundle it. Index.js also exports StaticRouter from react-router-dom. This is because since react-router-dom 5.0.0 there is a new React.createContext API. More about this can be found <a href="https://github.com/ReactTraining/react-router/issues/6789#issuecomment-502490351">here</a>.
+Index.js exports StaticRouter from react-router-dom. This is due the changes in react-router-dom 5.0.0 and above. Since that update there is a new React.createContext API. More about this can be found <a href="https://github.com/ReactTraining/react-router/issues/6789#issuecomment-502490351">here</a>.
